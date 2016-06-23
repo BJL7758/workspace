@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.0.0.js"></script>
+		<style>
+			#up{
+				width: 100px;
+				height: 30px;
+				line-height: 30px;
+				font-weight: bold;
+				color: gray;
+				padding-left: 15px;
+				background: lightgray;
+			}
+			#down{
+				width: 200px;
+				height: 300px;
+				color: darkslategray;
+				background: darkgray;
+				display: none;
+			}
+			#box{
+				border: 1px red solid;
+				width: 200px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<div id="up">送至：北京</div>
+			<div id="down">北京 上海 天津 重庆 河北 山西 河南 辽宁 黑龙江 内蒙古 江苏 山东 安徽 浙江</div>
+		</div>
+		<script>
+			$("#up").mouseenter(function(){
+				$("#down").slideDown(1000)
+			})
+			
+			$("#box").mouseleave(function(){
+				$("#down").slideUp(1000)
+			})
+		</script>
+	</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.0.0.js"></script>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#test{
+				width: 100px;
+				height: 400px;
+				background: olivedrab;
+				position: relative;
+			}
+		</style>
+	</head>
+	<body>
+		<button>animate</button>
+		<br /><br />
+		<div id="test"></div>
+		
+		<script>
+			$("button").click(function(){
+				$("#test").animate({height:"100px"},2000);
+				$("#test").animate({width:"400px"},2000);
+				$("#test").animate({width:"100px",left:"300px"},2000);
+				$("#test").animate({height:"400px"},2000);
+				$("#test").animate({height:"100px",top:"300px"},2000);
+				$("#test").animate({width:"400px",left:"0px"},2000);
+				$("#test").animate({width:"100px"},2000);
+				$("#test").animate({height:"400px",top:"0px"},2000);
+			})
+		</script>
+	</body>
+</html>

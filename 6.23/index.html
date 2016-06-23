@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script src="js/jquery-3.0.0.js"></script>
+		<style>
+			#hideDiv{
+				width: 100px;
+				height: 400px;
+				background: orange;
+			}
+			#toggle{
+				width: 200px;
+				height: 200px;
+				background: blueviolet;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="btn">隐藏</button>
+		<button id="btn2">显示</button>
+		<button id="btn3">切换</button>
+		<br /><br />
+		<div id="hideDiv"></div>
+		<br />
+		<div id="toggle"></div>
+		<script>
+			$("#btn").click(function(){
+				$("#hideDiv").hide(3000);
+			})
+			
+			$("#btn2").click(function(){
+				$("#hideDiv").show(3000);
+			})
+			
+			$("#btn3").click(function(){
+				$("#hideDiv").toggle(3000);
+			})
+			
+			
+			setInterval(function(){
+				$("#toggle").toggle(2000);
+			},2000)
+		</script>
+	</body>
+</html>
