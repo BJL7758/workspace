@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.0.0.js"></script>
+	</head>
+	<body>
+		<form>
+			姓名：<input type="text" id="name" />
+			<br /><br />
+			年龄：<input type="password" id="pwd" />
+		</form>
+		<br />
+		<button id="js">js改变输入框背景色</button>
+		<button id="jq">jq改变输入框背景色</button>
+		
+		
+		<script>
+		
+			document.getElementById("js").onclick = function(){
+				var inputArr = document.getElementsByTagName("input");
+				for(var i=0,len=inputArr.length;i<len;i++){
+					inputArr[i].style.background = "orange";
+				}
+			}
+			
+			
+			
+			$("#jq").click(function(){
+				$("input").css("background","aqua")
+			})
+			
+		</script>
+	</body>
+</html>

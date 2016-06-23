@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.0.0.js"></script>
+	</head>
+	<body>
+		<label for="abc">姓名</label>
+		<input type="text" id="abc"/>
+		<div id="div"></div>
+		<script>
+			$.holdReady(true);
+			
+			$(document).ready(function(){
+				$("#div").text(5)
+			})
+			
+			setTimeout(function(){
+				$.holdReady(false)
+			},2000)
+			
+		</script>
+	</body>
+</html>

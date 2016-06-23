@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>欧洲杯部分参赛国家的国旗</title>
+		<script src="js/jquery-3.0.0.js"></script>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.drow{
+				overflow: hidden;
+			}
+			.dcell{
+				float: left;
+			}
+			input{
+				width: 60px;
+			}
+		</style>
+	</head>
+	<body>
+		<h2></h2>
+		<form action="">
+			<div class="dtable">
+				<div class="drow">
+					<div class="dcell">
+						<img src="img/Czech.jpg" alt="" />
+						<label for="">捷克</label>
+						<input type="text" />
+					</div>
+					<div class="dcell">
+						<img src="img/france.jpg" alt="" />
+						<label for="">法国</label>
+						<input type="text" />
+					</div>
+					<div class="dcell">
+						<img src="img/Germany.jpg" alt="" />
+						<label for="">德国</label>
+						<input type="text" />
+					</div>
+				</div>
+				<div class="drow">
+					<div class="dcell">
+						<img src="img/Iceland.jpg" alt="" />
+						<label for="">冰岛</label>
+						<input type="text" />
+					</div>
+					<div class="dcell">
+						<img src="img/Ireland.jpg" alt="" />
+						<label for="">爱尔兰</label>
+						<input type="text" />
+					</div>
+					<div class="dcell">
+						<img src="img/Italy1.jpg" alt="" />
+						<label for="">意大利</label>
+						<input type="text" />
+					</div>
+				</div>
+			</div>
+		</form>
+		
+		<script>
+		
+			alert($("label:contains('国')").text());
+			
+		</script>
+	</body>
+</html>

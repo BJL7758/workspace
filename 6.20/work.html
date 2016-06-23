@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-3.0.0.js"></script>
+		<style>
+		
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<div id="header">用户注册表单</div>
+			<div id="form">
+				<div id="error"></div>
+				<table>
+					<tr>
+						<td colspan="3"><div class="log">登录信息</div></td>
+					</tr>
+					<tr>
+						<td>用户名</td>
+						<td><input type="text" id="userName" /></td>
+						<td><span id="span1"></span></td>
+					</tr>
+					<tr>
+						<td>密码</td>
+						<td><input type="password" id="pwd" /></td>
+						<td><span id="span2"></span></td>
+					</tr>
+					<tr>
+						<td>再次输入密码</td>
+						<td><input type="password" id="repwd" /></td>
+						<td><span id="span3"></span></td>
+					</tr>
+					<tr>
+						<td colspan="3"><div class="log">个人信息</div></td>
+					</tr>
+					<tr>
+						<td>姓名</td>
+						<td><input type="password" id="name" /></td>
+						<td><span id="span4"></td>
+					</tr>
+					<tr>
+						<td>电子邮件</td>
+						<td><input type="password" id="email" /></td>
+						<td><span id="span5"></span></td>
+					</tr>
+					<tr>
+						<td>个人博客（url）</td>
+						<td><input type="password" id="blogs" /></td>
+						<td><span id="span6"></span></td>
+					</tr>
+					<tr>
+						<td>电话号码</td>
+						<td><input type="password" id="phone" /></td>
+						<td><span id="span7"></span></td>
+					</tr>
+					<tr>
+						<td>手机号码</td>
+						<td><input type="password" id="tel" /></td>
+						<td><span id="span8"></span></td>
+					</tr>
+					<tr>
+						<td>联系地址</td>
+						<td><input type="password" id="address" /></td>
+						<td><span id="span9"></span></td>
+					</tr>
+					<tr>
+						<td>邮政编码</td>
+						<td><input type="password" id="postcode" /></td>
+						<td><span id="span10"></span></td>
+					</tr>
+					<tr>
+						<td></td>
+						<td><button id="btn">注册</button></td>
+						<td></td>
+					</tr>
+				</table>
+			</div>
+		</div>
+		
+		<script>
+			//用jQuery调的样式
+			$("#box").css({"width":"450px","height":"600px","margin":"0 auto","border":"1px solid black","background":"lightgray"});
+			$("#header").css({"height":"60px","line-height":"60px","text-align":"center","background":"gray","font-weight":"bold","font-size":"21px","color":"white"});
+			$("#error").css({"height":"50px","line-height":"50px","color":"#F56A48","width":"170px","margin":"0 auto","font-size":"13px"})
+			$(".log").css({"width":"440px","height":"40px","line-height":"40px","border-top":"1px solid gray","border-bottom":"1px solid gray","color":"#87101C","font-weight":"bold","margin-bottom":"5px","font-size":"19px"})
+			$("td").css({"font-size":"10px","width":"120px"});
+			$("#btn").css({"width":"160px","height":"30px","margin-top":"15px","background":"darkgray"});
+			
+			//用jQuery进行表单验证
+			var reg1 = /^[a-zA-z][a-zA-Z0-9_]{5,15}$/,
+			reg2 = /^[\@A-Za-z0-9\!\#\$\%\^\&\*\.\~]{6,16}$/,
+			reg4 = /^[\u4E00-\u9FA5]{2,4}$/,
+			reg5 = /^([0-9A-Za-z\-_\.]+)@([0-9a-z]+\.[a-z]{2,3}(\.[a-z]{2})?)$/g,
+			reg6 = /^(https?|ftp|mms):\/\/([A-z0-9]+[_\-]?[A-z0-9]+\.)*[A-z0-9]+\-?[A-z0-9]+\.[A-z]{2,}(\/.*)*\/?$/,
+			reg7 = /^(\(\d{3,4}\)|\d{3,4}-|\s)?\d{8}$/,
+			reg8 = /^1\d{10}$/,
+			reg9 = /^(?=.*?[\u4E00-\u9FA5])[\d\u4E00-\u9FA5]+$/,
+			reg10 = /^[1-9]\d{5}(?!\d)$/;
+			
+			
+			//用户名验证
+			$("#userName").blur(function(){
+				if(reg1.test(this.value)){
+					$("#span1").html("√");
+					$("#span1").css("color","darkgreen");
+				}else{
+					$("#span1").html("输入的用户名有误！");
+					$("#span1").css("color","#F56A48");			
+				}
+			})
+			$("#userName").focus(function(){
+				$("#span1").html("");
+			})
+			
+			//密码验证
+			$("#pwd").blur(function(){
+				if(reg2.test(this.value)){
+					$("#span2").html("√");
+					$("#span2").css("color","darkgreen");
+				}else{
+					$("#span2").html("输入的密码有误！");
+					$("#span2").css("color","#F56A48");
+				}
+			})
+			$("#pwd").focus(function(){
+				$("#span2").html("");
+			})
+			
+			//再次输入密码验证
+			$("#repwd").blur(function(){
+				if(this.value == $("#pwd").val()){
+					$("#span3").html("√");
+					$("#span3").css("color","darkgreen");					
+				}else{
+					$("#span3").html("两次输入密码不一致");
+					$("#span3").css("color","#F56A48");
+				}
+			})
+			$("#repwd").focus(function(){
+				$("#span3").html("");
+			})
+			
+			//点击注册 显示错误数量
+			    //定义一个错误计数器
+			
+			$("#btn").click(function(){
+				var count = 0;
+				var b=-1
+				$("span").each(function(){
+					b++
+					if($($("span")[b]).css("color") == "rgb(245, 106, 72)"){
+						count++
+					}
+				})
+				/*for (var i=0; i<$("span").length;i++) {
+					if($($("span")[i]).css("color")=="rgb(245, 106, 72)"){
+						count++
+					}
+				}*/
+				$("#error").html("表单中有"+count+"处错误！");
+			})
+		</script>
+	</body>
+
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<script>
+		
+			function Test(){
+				var a = 33;
+				this.setA = function(_a){
+					a = _a;
+				}
+				this.getA = function(){
+					return a;
+				}
+			}
+			
+			var t = new Test();
+			t.setA(100);
+			alert(t.getA());
+		</script>
+	</body>
+</html>
