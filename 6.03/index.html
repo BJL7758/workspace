@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<style>
+			*{
+				padding: 0;
+				margin: 0;
+			}
+			#box{
+				width: 1200px;
+				height: 650px;
+				margin: 0 auto;
+				border: 2px blue solid;
+				position: relative;
+			}
+			#gfd{
+				position: absolute;
+			}
+			#cat{
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<img src="img/gfdtr_03.gif" id="gfd" style="top: 600px;left: 600px;z-index: 2;"/>
+			<img src="img/cat.jpg" id="cat" style="top: 605px;left: 617px;z-index: 1;"/>
+		</div>
+		
+		<script>
+			function $(id){
+				return document.getElementById(id);
+			}
+			
+			window.onload = function(){
+				
+				document.onkeydown = function(e){
+					
+					if(e.keyCode == 37){
+						$("gfd").style.left = parseInt($("gfd").style.left) - 10 +"px";
+						$("cat").style.left = parseInt($("cat").style.left) - 10 +"px";
+					}else if(e.keyCode == 38){
+						$("gfd").style.top = parseInt($("gfd").style.top) - 10 + "px";
+						$("cat").style.top = parseInt($("cat").style.top) - 10 + "px";
+					}else if(e.keyCode == 39){
+						$("gfd").style.left = parseInt($("gfd").style.left) + 10 + "px";
+						$("cat").style.left = parseInt($("cat").style.left) + 10 + "px";
+					}else if(e.keyCode == 40){
+						$("gfd").style.top = parseInt($("gfd").style.top) + 10 + "px";
+						$("cat").style.top = parseInt($("cat").style.top) + 10 + "px";
+					}
+					
+					
+					function send(){
+						if(e.keyCode == 32){
+							$("cat").style.top = parseInt($("cat").style.top) - 10 + "px";
+							if(parseInt($("cat").style.top) < 0){
+								$("cat").style.top = parseInt($("gfd").style.top) + 5 + "px";
+								clearInterval(s);
+							}
+						}
+					}
+					
+					var s = setInterval(send,50);
+					
+					
+					
+					
+					
+					
+					
+				}
+				
+				
+				
+				
+				
+				
+			}
+			
+		</script>
+	</body>
+</html>

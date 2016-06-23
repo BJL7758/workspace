@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			img{
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body style="background: deepskyblue;">
+		<img src="img/star.png"/>
+		<img src="img/star.png"/>
+		<img src="img/star.png"/>
+		<img src="img/star.png"/>
+		<img src="img/star.png"/>
+		<img src="img/star.png"/>
+		<img src="img/star.png"/>
+		<img src="img/star.png"/>
+		<img src="img/star.png"/>
+		<img src="img/star.png"/>
+		<img src="img/star.png"/>
+		<img src="img/star.png"/>
+		<img src="img/star.png"/>
+		<img src="img/star.png"/>
+		<img src="img/star.png"/>
+		<img src="img/star.png"/>
+		<img src="img/star.png"/>
+		<img src="img/star.png"/>		
+		<script>
+				document.onmousemove = function(event){
+					var e = event || window.event;
+					
+					var cx = e.clientX,
+					cy = e.clientY,
+					imgs = document.getElementsByTagName("img");
+					
+					imgs[0].style.left = cx + "px";
+					imgs[0].style.top = cy + "px";
+					
+					for(i = imgs.length-1;i>0;i--){
+						imgs[i].style.left = parseInt(imgs[i-1].style.left) + "px";
+						imgs[i].style.top = parseInt(imgs[i-1].style.top) + "px";
+					}
+				}
+		</script>
+	</body>
+</html>
